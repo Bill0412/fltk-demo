@@ -31,6 +31,8 @@ struct Windows : Fl_Double_Window {
 			case FL_RELEASE:
 				std::cout << "FL_RELEASE" << std::endl;
 				// only need to judge when it releases
+				std::cout << "(" << Fl::event_x() << "," << Fl::event_y() << ")\n";
+				board->tryPutChess(Fl::event_x(), Fl::event_y());
 				break;
 			default:
 				break;
