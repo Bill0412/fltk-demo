@@ -26,6 +26,9 @@ class Board: public Shape
         {
             board[row * numCol + col] = type;
 
+            if(type == empty) {
+                return;
+            }
             // set graphically
             int color = FL_BLACK;
             if (type == white) {
@@ -49,7 +52,7 @@ class Board: public Shape
 
             int shorter = (w > h) ? h : w;
             box_edge = shorter * 2 / (3 * nRow);
-            chessRadius = box_edge / 3;
+            chessRadius = box_edge / 4;
             title_placeholder = h / 8;
             // rows
             for(int i = 0; i < nRow; i++) {
