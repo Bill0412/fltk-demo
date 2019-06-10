@@ -1,6 +1,7 @@
 struct Shape {
 	int line_width, line_color, fill_color;
 	vector<Point> pts;
+	Shape(){}
 	Shape(int lw, int lc, int fc)
 	: line_width(lw), line_color(lc), fill_color(fc) {}
 	void add(Point p) { pts.push_back(p); }

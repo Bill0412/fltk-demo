@@ -19,5 +19,6 @@ enum typeChess {empty, black, white};
 #include "Text.h"
 #include "Windows.h"
 #include "Board.h"
+#include "Chess.h"
 
 #endif
