@@ -13,6 +13,7 @@ class Board: public Shape
         typeChess* board; // 0 for black, 1 for white
         int numCol, numRow;
         vector<Line*> lines;
+        int title_placeholder;
 
         typeChess getBoard(int row, int col)
         {
@@ -23,6 +24,11 @@ class Board: public Shape
         {
             board[row * numCol + col] = type;
         }
+
+//        Point* getChessCord(int row, int col)
+//        {
+//            return new Point(ti);
+//        }
 
         void init_board(int nRow, int nCol)
         {
@@ -38,18 +44,21 @@ class Board: public Shape
 
             int shorter = (w > h) ? h : w;
             int box_edge = shorter * 2 / (3 * nRow);
+            title_placeholder = h / 8;
             // rows
             for(int i = 0; i < nRow; i++) {
                 int left = box_edge;
                 int right = nCol * box_edge;
-                lines.push_back(new Line(Point(left, (i + 1) * box_edge), Point(right, (i + 1) * box_edge), 3, FL_BLACK));
+                int horizontal = (i + 1) * box_edge + title_placeholder;
+                lines.push_back(new Line(Point(left, horizontal), Point(right, horizontal), 3, FL_BLACK));
             }
 
             // columns
             for(int i = 0; i < nCol; i++) {
-                int top = box_edge;
-                int bottom = nRow * box_edge;
-                lines.push_back(new Line(Point((i + 1) * box_edge , top), Point((i + 1) * box_edge, bottom), 3, FL_BLACK));
+                int top = box_edge + title_placeholder;
+                int bottom = top + (nRow - 1) * box_edge;
+                int vertical = (i + 1) * box_edge;
+                lines.push_back(new Line(Point(vertical , top), Point(vertical, bottom), 3, FL_BLACK));
             }
         }
 
