@@ -1,0 +1,3 @@
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/cmake-build-debug/CMakeFiles/renju.dir
