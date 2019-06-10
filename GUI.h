@@ -6,6 +6,7 @@
 #include <FL/fl_draw.H>
 #include <string>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 

@@ -23,6 +23,8 @@ string
 -
 vector
 -
+iostream
+-
 Point.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Point.h
 Shape.h
@@ -47,6 +49,10 @@ Board.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Text.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Windows.h
+GUI.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/GUI.h
+Board.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Board.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/main.cpp
 GUI.h
