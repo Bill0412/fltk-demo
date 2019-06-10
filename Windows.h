@@ -5,6 +5,7 @@ struct Windows : Fl_Double_Window {
 	Windows(Point topleft, int width, int height, string title)
 	:
 	board(new Board(10, 10)),
+	stage(HUMAN_RIVAL_PAGE), // to be modified to initial page.
 	Fl_Double_Window(topleft.x, topleft.y, width, height, title.c_str()) {
 		color(FL_DARK_GREEN);
 		show();
@@ -24,19 +25,26 @@ struct Windows : Fl_Double_Window {
 	}
 
 	int handle(int event) {
-		switch(event) {
-			case FL_PUSH:
-				std::cout << "FL_PUSH" << std::endl;
-				break;
-			case FL_RELEASE:
-				std::cout << "FL_RELEASE" << std::endl;
-				// only need to judge when it releases
-				std::cout << "(" << Fl::event_x() << "," << Fl::event_y() << ")\n";
-				board->tryPutChess(Fl::event_x(), Fl::event_y());
-				break;
-			default:
-				break;
+		switch(stage) {
+			case HUMAN_RIVAL_PAGE:
+				switch(event) {
+					case FL_PUSH:
+						// std::cout << "FL_PUSH" << std::endl;
+						break;
+					case FL_RELEASE:
+						std::cout << "FL_RELEASE" << std::endl;
+						// only need to judge when it releases
+						// std::cout << "(" << Fl::event_x() << "," << Fl::event_y() << ")\n";
+						board->tryPutChess(Fl::event_x(), Fl::event_y());
+						break;
+					default:
+						break;
+		}
+
 
 		}
 	}
+
+private:
+	GameStages stage;
 };

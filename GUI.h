@@ -12,6 +12,7 @@ using namespace std;
 
 int w{Fl::w()/2}, h{Fl::h()};
 enum typeChess {empty, black, white};
+enum GameStages {INITIAL_PAGE, SELECT_PAGE, AI_RIVAL_PAGE, HUMAN_RIVAL_PAGE, GAME_OVER_PAGE};
 
 #include "Point.h"
 #include "Shape.h"
