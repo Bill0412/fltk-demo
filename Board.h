@@ -13,7 +13,9 @@ class Board: public Shape
         typeChess* board; // 0 for black, 1 for white
         int numCol, numRow;
         vector<Line*> lines;
-        int title_placeholder;
+        int title_placeholder, box_edge;
+        vector<Circle*> chesses;
+        int chessRadius;
 
         typeChess getBoard(int row, int col)
         {
@@ -23,27 +25,31 @@ class Board: public Shape
         void setBoard(int row, int col, typeChess type)
         {
             board[row * numCol + col] = type;
+
+            // set graphically
+            int color = FL_BLACK;
+            if (type == white) {
+                color = FL_WHITE;
+            }
+            Point pos = *getChessCord(row, col);
+            chesses.push_back(new Circle(pos, chessRadius, 1, color, color));
+
+            // remove chess(set empty)
+            // no need to support
         }
 
-//        Point* getChessCord(int row, int col)
-//        {
-//            return new Point(ti);
-//        }
+        Point* getChessCord(int row, int col)
+        {
+            return new Point((col + 1) * box_edge, title_placeholder + box_edge * (row + 1));
+        }
 
         void init_board(int nRow, int nCol)
         {
-            // inside representation
-            board = new typeChess[nRow * nCol];
-            for(int i = 0; i < nRow; i++) {
-                for(int j = 0; j < nCol; j++) {
-                    setBoard(nRow, nCol, empty);
-                }
-            }
-
             // graphical board
 
             int shorter = (w > h) ? h : w;
-            int box_edge = shorter * 2 / (3 * nRow);
+            box_edge = shorter * 2 / (3 * nRow);
+            chessRadius = box_edge / 3;
             title_placeholder = h / 8;
             // rows
             for(int i = 0; i < nRow; i++) {
@@ -59,6 +65,14 @@ class Board: public Shape
                 int bottom = top + (nRow - 1) * box_edge;
                 int vertical = (i + 1) * box_edge;
                 lines.push_back(new Line(Point(vertical , top), Point(vertical, bottom), 3, FL_BLACK));
+            }
+
+            // inside representation
+            board = new typeChess[nRow * nCol];
+            for(int i = 0; i < nRow; i++) {
+                for(int j = 0; j < nCol; j++) {
+                    setBoard(i, j, empty);
+                }
             }
         }
 
@@ -83,8 +97,14 @@ class Board: public Shape
 
 
     void draw() {
-        for(int i=0;i<lines.size();i++)
+            // draw lines
+        for(int i = 0; i < lines.size(); i++)
             lines[i]->draw();
+
+        for(int i = 0; i < chesses.size(); i++)
+            chesses[i]->draw();
+
+
     }
 
 };
