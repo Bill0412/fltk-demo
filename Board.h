@@ -126,7 +126,7 @@ public:
     {
         Point* pos = getChessPos(x, y);
         std::cout << pos << std::endl;
-        if(pos) {
+        if(pos && getBoard(pos->x, pos->y) == empty) {
             setBoard(pos->x, pos->y, turn);
             flipTurn();
         }
