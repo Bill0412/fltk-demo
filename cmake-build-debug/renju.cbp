@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Board.h">
+			<Option target="renju"/>
+		</Unit>
 		<Unit filename="/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Circle.h">
 			<Option target="renju"/>
 		</Unit>

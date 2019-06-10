@@ -1,3 +1,6 @@
+#ifndef __GUI_H
+#define __GUI_H
+
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
 #include <FL/fl_draw.H>
@@ -7,6 +10,7 @@
 using namespace std;
 
 int w{Fl::w()/2}, h{Fl::h()};
+enum typeChess {empty, black, white};
 
 #include "Point.h"
 #include "Shape.h"
@@ -14,3 +18,6 @@ int w{Fl::w()/2}, h{Fl::h()};
 #include "Circle.h"
 #include "Text.h"
 #include "Windows.h"
+#include "Board.h"
+
+#endif

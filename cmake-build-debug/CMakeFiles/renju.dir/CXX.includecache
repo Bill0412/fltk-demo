@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Board.h
+GUI.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/GUI.h
+
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Circle.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/GUI.h
@@ -31,6 +35,8 @@ Text.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Text.h
 Windows.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Windows.h
+Board.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Board.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Line.h
 
