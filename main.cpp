@@ -13,7 +13,7 @@ int main() {
 //    window.attach(text2);
 //    window.attach(circle1);
 
-    Board board(10, 10);
-    window.attach(board);
+    // Board board(10, 10);
+    // window.attach(board);
     return Fl::run();
 }
