@@ -68,6 +68,57 @@ private:
         turn = (turn == black) ? white : black;
     }
 
+    bool IsThePlayerWin(int i, int j)
+    {
+        typeChess chess = turn;
+        int boardSize = numCol;
+
+        // search left - right
+        {
+            int right, left;
+            for (right = 0;  i + right + 1 < boardSize && getBoard(i + right + 1, j) == chess; right++);
+            for (left = 0; (i - left - 1) >=0 && getBoard(i - left - 1, j) == chess; left++);
+            if (left + right + 1 >= 5)
+            {
+                return true;
+            }
+        }
+
+        // search rightTop - leftBottom
+        {
+            int rightTop, leftBottom;
+            for (rightTop = 0; i + rightTop + 1 < boardSize && j - rightTop - 1 >= 0 && getBoard(rightTop + i + 1, j - rightTop - 1) == chess; rightTop++);
+            for (leftBottom = 0; (i - leftBottom - 1) >=0 && (j + leftBottom + 1) < boardSize  && getBoard(i - leftBottom - 1, j + leftBottom + 1) == chess; leftBottom++);
+            if (leftBottom + rightTop + 1>= 5)
+            {
+                return true;
+            }
+        }
+
+        // search top-bottom
+        {
+            int top, bottom;
+            for (top = 0; j - top - 1 >= 0 && getBoard(i, j - top - 1) == chess; top++);
+            for (bottom = 0; (j + bottom + 1) < boardSize && getBoard(i, j + bottom + 1) == chess; bottom++);
+            if (top + bottom + 1 >= 5)
+            {
+                return true;
+            }
+        }
+
+        //search leftTop - rightBottom
+        {
+            int leftTop, rightBottom;
+            for (leftTop = 0; i - leftTop - 1 >= 0 && j - leftTop - 1 >= 0 && getBoard(i - leftTop - 1, j - leftTop - 1) == chess; leftTop++);
+            for (rightBottom = 0; (i + rightBottom + 1) < boardSize && (j + rightBottom + 1) < boardSize && getBoard(i + rightBottom + 1, j + rightBottom + 1) == chess; rightBottom++);
+            if (leftTop + rightBottom + 1>= 5)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     void init_board(int nRow, int nCol)
     {
@@ -127,7 +178,14 @@ public:
         Point* pos = getChessPos(x, y);
         std::cout << pos << std::endl;
         if(pos && getBoard(pos->x, pos->y) == empty) {
-            setBoard(pos->x, pos->y, turn);
+            setBoard(pos->x, pos->y, turn);\
+
+            // check the game rule
+            // if the one of the players wins, the game should end
+            if(IsThePlayerWin(pos->x, pos->y)) {
+
+                std::cout << ((turn == 2)? "white" : "black") << " wins!" << std::endl;
+            }
             flipTurn();
         }
         Fl::redraw();
