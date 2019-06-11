@@ -10,6 +10,17 @@ struct Windows : Fl_Double_Window {
 	width(width),
 	height(height),
 	Fl_Double_Window(topleft.x, topleft.y, width, height, title.c_str()) {
+
+		// init the menu bar
+		Fl_Menu_Item menuitems[] = {
+			{"&Restart", FL_CTRL + 'r', 0, 0},
+			{0}
+		};
+
+		menuBar = new Fl_Menu_Bar(0, 0, width, 30);
+		menuBar->copy(menuitems);
+
+		// init window background
 		color(FL_DARK_GREEN);
 		show();
 	}
@@ -61,6 +72,7 @@ struct Windows : Fl_Double_Window {
 private:
 	GameStages stage, prevStage;
 
+	Fl_Menu_Bar *menuBar;
 	void setStage(GameStages s)
 	{
 		stage = s;
@@ -119,6 +131,12 @@ private:
 		Text text1(Point(width / 8 + 100 , height / 3 + 150), 1, 50, FL_WHITE, string(((board->getTurn() == 2)? "WHITE" : "BLACK")) + " " + string( "WINS!"));
 		text.draw();
 		text1.draw();
+	}
+
+	void renderMenuBar()
+	{
+		// menuBar->redraw();
+		// return;
 	}
 
 

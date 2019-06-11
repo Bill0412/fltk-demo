@@ -19,6 +19,8 @@ FL/Fl_Double_Window.H
 -
 FL/fl_draw.H
 -
+FL/Fl_Menu_Bar.H
+-
 string
 -
 vector
@@ -125,6 +127,22 @@ Enumerations.H
 /usr/local/include/FL/Enumerations.H
 stdlib.h
 -
+
+/usr/local/include/FL/Fl_Menu_.H
+Fl_Widget.H
+/usr/local/include/FL/Fl_Widget.H
+Fl_Menu_Item.H
+/usr/local/include/FL/Fl_Menu_Item.H
+
+/usr/local/include/FL/Fl_Menu_Bar.H
+Fl_Menu_.H
+/usr/local/include/FL/Fl_Menu_.H
+
+/usr/local/include/FL/Fl_Menu_Item.H
+Fl_Widget.H
+/usr/local/include/FL/Fl_Widget.H
+Fl_Image.H
+/usr/local/include/FL/Fl_Image.H
 
 /usr/local/include/FL/Fl_Pixmap.H
 Fl_Image.H

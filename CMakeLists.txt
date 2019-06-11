@@ -3,7 +3,7 @@ project(renju)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp Circle.h GUI.h Line.h Point.h Point.h Text.h Windows.h Board.h) #EventWindow.cpp EventWindow.h)
+set(SOURCE_FILES main.cpp Circle.h GUI.h Line.h Point.h Point.h Text.h Windows.h Board.h Menu.h) #EventWindow.cpp EventWindow.h)
 
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

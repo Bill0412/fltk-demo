@@ -19,6 +19,9 @@ CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Double_Window.H
 CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Export.H
 CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Group.H
 CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Image.H
+CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Menu_.H
+CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Menu_Bar.H
+CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Menu_Item.H
 CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Pixmap.H
 CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Plugin.H
 CMakeFiles/renju.dir/main.cpp.o: /usr/local/include/FL/Fl_Preferences.H
