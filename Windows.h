@@ -14,6 +14,7 @@ struct Windows : Fl_Double_Window {
 	{
 		// init window background
 		color(FL_DARK_GREEN);
+		end();
 		show();
 	}
 	~Windows()
