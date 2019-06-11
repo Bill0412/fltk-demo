@@ -41,32 +41,49 @@ struct Windows : Fl_Double_Window {
 	}
 
 	int handle(int event) {
+		prevStage = stage;
 		switch(stage) {
+			case INITIAL_PAGE:
+				onHandleInitialPage(event);
+				break;
 			case HUMAN_RIVAL_PAGE:
 				onHandleHumanRivalPage(event);
 				break;
 			case GAME_OVER_PAGE:
 				onHandleGameOverPage(event);
 				break;
-
+		}
+		if(stage != prevStage) {
+			Fl:redraw();
 		}
 	}
 
 private:
 	GameStages stage, prevStage;
 
-	void onRenderInitialPage()
+	void setStage(GameStages s)
 	{
-		Text text(Point(width / 3, height / 3), 1, 100, FL_WHITE, "五子棋");
-		Text text1(Point(width / 3 + 10, height / 3 + 60), 1, 25, FL_WHITE, "单击任何区域以开始游戏");
-		text.draw();
-		text1.draw();
+		stage = s;
+		board->setStage(s);
 	}
 
 
+
+	void onHandleInitialPage(int event)
+	{
+		switch(event)
+		{
+			case FL_RELEASE:
+				// may be modified to login page later
+				setStage(HUMAN_RIVAL_PAGE);
+				break;
+			default:
+				break;
+		}
+	}
+
 	void onHandleHumanRivalPage(int event)
 	{
-		prevStage = stage;
 		switch(event) {
 			case FL_PUSH:
 				// std::cout << "FL_PUSH" << std::endl;
@@ -80,9 +97,6 @@ private:
 			default:
 				break;
 		}
-		if(stage != prevStage) {
-			Fl:redraw();
-		}
 	}
 
 	void onHandleGameOverPage(int event)
@@ -90,10 +104,21 @@ private:
 		return;
 	}
 
+	void onRenderInitialPage()
+	{
+		Text text(Point(width / 3, height / 3), 1, 100, FL_WHITE, "五子棋");
+		Text text1(Point(width / 3 + 10, height / 3 + 60), 1, 25, FL_WHITE, "单击任何区域以开始游戏");
+		text.draw();
+		text1.draw();
+	}
+
 	void onRenderGameOverPage()
 	{
-		Text text(Point(height/3, width/3), 50, 50, FL_WHITE, "Game Over");
+		Text text(Point(width / 8, height / 3), 1, 100, FL_WHITE, "Game Over");
+
+		Text text1(Point(width / 8 + 100 , height / 3 + 150), 1, 50, FL_WHITE, string(((board->getTurn() == 2)? "WHITE" : "BLACK")) + " " + string( "WINS!"));
 		text.draw();
+		text1.draw();
 	}
 
 

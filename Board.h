@@ -155,6 +155,15 @@ private:
     }
 
 public:
+    void setStage(GameStages s)
+    {
+        stage = s;
+    }
+
+    typeChess getTurn()
+    {
+        return turn;
+    }
 
     Board(int numRow, int numCol)
         :
