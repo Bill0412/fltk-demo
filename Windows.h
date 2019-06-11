@@ -1,5 +1,6 @@
 #include "GUI.h"
 #include "Board.h"
+#include "MenuBar.h"
 
 
 struct Windows : Fl_Double_Window {
@@ -8,7 +9,7 @@ struct Windows : Fl_Double_Window {
 	board(new Board(10, 10)),
 	width(width),
 	height(height),
-
+	menuBar(new MenuBar(width)),
 	Fl_Double_Window(topleft.x, topleft.y, width, height, title.c_str())
 	{
 		// init window background
@@ -61,6 +62,9 @@ struct Windows : Fl_Double_Window {
 	}
 
 private:
+
+	MenuBar *menuBar;
+
 	void onHandleInitialPage(int event)
 	{
 		switch(event)

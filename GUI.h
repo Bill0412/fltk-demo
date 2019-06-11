@@ -37,5 +37,6 @@ void setStage(GameStages s)
 #include "Text.h"
 #include "Windows.h"
 #include "Board.h"
+#include "MenuBar.h"
 
 #endif

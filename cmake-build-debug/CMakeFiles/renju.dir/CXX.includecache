@@ -41,8 +41,14 @@ Windows.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Windows.h
 Board.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Board.h
+MenuBar.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/MenuBar.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Line.h
+
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/MenuBar.h
+GUI.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/GUI.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Point.h
 math.h
@@ -57,6 +63,8 @@ GUI.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/GUI.h
 Board.h
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/Board.h
+MenuBar.h
+/Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/MenuBar.h
 
 /Users/fenghexu/OneDrive - zju.edu.cn/Documents/Helping other people/张佳娉/renju/main.cpp
 GUI.h

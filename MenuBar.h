@@ -6,7 +6,7 @@
 #define RENJU_MENUBAR_H
 
 #include "GUI.h"
-#include "Windows.h"
+
 
 
 class MenuBar : Fl_Menu_Bar {
@@ -27,11 +27,10 @@ public:
     }
 
 private:
-    Windows* window;
-    void restart_cb(void)
-    {
-
-    }
+//    void restart_cb(void)
+//    {
+//        return;
+//    }
 };
 
 

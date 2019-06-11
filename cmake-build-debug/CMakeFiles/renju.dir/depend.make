@@ -5,6 +5,7 @@ CMakeFiles/renju.dir/main.cpp.o: ../Board.h
 CMakeFiles/renju.dir/main.cpp.o: ../Circle.h
 CMakeFiles/renju.dir/main.cpp.o: ../GUI.h
 CMakeFiles/renju.dir/main.cpp.o: ../Line.h
+CMakeFiles/renju.dir/main.cpp.o: ../MenuBar.h
 CMakeFiles/renju.dir/main.cpp.o: ../Point.h
 CMakeFiles/renju.dir/main.cpp.o: ../Shape.h
 CMakeFiles/renju.dir/main.cpp.o: ../Text.h
