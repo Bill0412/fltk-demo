@@ -27,6 +27,9 @@ struct Windows : Fl_Double_Window {
 //			shapes[i]->draw();
 
 		switch(stage) {
+			case INITIAL_PAGE:
+				onRenderInitialPage();
+				break;
 			case HUMAN_RIVAL_PAGE:
 				board->draw();
 				break;
@@ -51,6 +54,16 @@ struct Windows : Fl_Double_Window {
 
 private:
 	GameStages stage, prevStage;
+
+	void onRenderInitialPage()
+	{
+		Text text(Point(width / 3, height / 3), 1, 100, FL_WHITE, "五子棋");
+		Text text1(Point(width / 3 + 10, height / 3 + 60), 1, 25, FL_WHITE, "单击任何区域以开始游戏");
+		text.draw();
+		text1.draw();
+	}
+
+
 	void onHandleHumanRivalPage(int event)
 	{
 		prevStage = stage;
@@ -79,7 +92,9 @@ private:
 
 	void onRenderGameOverPage()
 	{
-		Text text(Point(height/3, width/3), 50, 50, 2, "Game Over");
+		Text text(Point(height/3, width/3), 50, 50, FL_WHITE, "Game Over");
 		text.draw();
 	}
+
+
 };

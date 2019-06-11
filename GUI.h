@@ -15,7 +15,8 @@ enum typeChess {empty, black, white};
 enum GameStages {INITIAL_PAGE, SELECT_PAGE, AI_RIVAL_PAGE, HUMAN_RIVAL_PAGE, GAME_OVER_PAGE};
 
 // This is a constant for development purpose
-const GameStages InitialStage = HUMAN_RIVAL_PAGE;
+const GameStages InitialStage = INITIAL_PAGE;
+// const GameStages InitialStage = HUMAN_RIVAL_PAGE;
 // const GameStages InitialStage = GAME_OVER_PAGE;
 
 #include "Point.h"
