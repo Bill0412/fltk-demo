@@ -21,6 +21,15 @@ const GameStages InitialStage = INITIAL_PAGE;
 // const GameStages InitialStage = GAME_OVER_PAGE;
 
 
+GameStages GameStage = InitialStage;
+GameStages PrevGameStage = GameStage;
+
+void setStage(GameStages s)
+{
+    PrevGameStage = GameStage;
+    GameStage = s;
+}
+
 #include "Point.h"
 #include "Shape.h"
 #include "Line.h"

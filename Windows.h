@@ -1,25 +1,16 @@
 #include "GUI.h"
 #include "Board.h"
 
+
 struct Windows : Fl_Double_Window {
 	Windows(Point topleft, int width, int height, string title)
 	:
 	board(new Board(10, 10)),
-	stage(InitialStage),
-	prevStage(InitialStage),
 	width(width),
 	height(height),
-	Fl_Double_Window(topleft.x, topleft.y, width, height, title.c_str()) {
 
-		// init the menu bar
-		Fl_Menu_Item menuitems[] = {
-			{"&Restart", FL_CTRL + 'r', 0, 0},
-			{0}
-		};
-
-		menuBar = new Fl_Menu_Bar(0, 0, width, 30);
-		menuBar->copy(menuitems);
-
+	Fl_Double_Window(topleft.x, topleft.y, width, height, title.c_str())
+	{
 		// init window background
 		color(FL_DARK_GREEN);
 		show();
@@ -37,7 +28,7 @@ struct Windows : Fl_Double_Window {
 //		for(int i=0;i<shapes.size();i++)
 //			shapes[i]->draw();
 
-		switch(stage) {
+		switch(GameStage) {
 			case INITIAL_PAGE:
 				onRenderInitialPage();
 				break;
@@ -52,8 +43,8 @@ struct Windows : Fl_Double_Window {
 	}
 
 	int handle(int event) {
-		prevStage = stage;
-		switch(stage) {
+		PrevGameStage = GameStage;
+		switch(GameStage) {
 			case INITIAL_PAGE:
 				onHandleInitialPage(event);
 				break;
@@ -64,23 +55,12 @@ struct Windows : Fl_Double_Window {
 				onHandleGameOverPage(event);
 				break;
 		}
-		if(stage != prevStage) {
+		if(PrevGameStage != GameStage) {
 			Fl:redraw();
 		}
 	}
 
 private:
-	GameStages stage, prevStage;
-
-	Fl_Menu_Bar *menuBar;
-	void setStage(GameStages s)
-	{
-		stage = s;
-		board->setStage(s);
-	}
-
-
-
 	void onHandleInitialPage(int event)
 	{
 		switch(event)
@@ -104,7 +84,7 @@ private:
 				// std::cout << "FL_RELEASE" << std::endl;
 				// only need to judge when it releases
 				// std::cout << "(" << Fl::event_x() << "," << Fl::event_y() << ")\n";
-				stage = board->tryPutChess(Fl::event_x(), Fl::event_y());
+				board->tryPutChess(Fl::event_x(), Fl::event_y());
 				break;
 			default:
 				break;
@@ -131,12 +111,6 @@ private:
 		Text text1(Point(width / 8 + 100 , height / 3 + 150), 1, 50, FL_WHITE, string(((board->getTurn() == 2)? "WHITE" : "BLACK")) + " " + string( "WINS!"));
 		text.draw();
 		text1.draw();
-	}
-
-	void renderMenuBar()
-	{
-		// menuBar->redraw();
-		// return;
 	}
 
 
