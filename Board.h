@@ -17,6 +17,7 @@ private:
     vector<Circle*> chesses;
     int chessRadius;
     typeChess turn;
+    GameStages stage;
 
     typeChess getBoard(int row, int col)
     {
@@ -162,7 +163,8 @@ public:
         numCol(numCol),
         numRow(numRow),
         Shape(1, FL_BLACK, 0),
-        turn(white)
+        turn(white),
+        stage(InitialStage)
         {
         init_board(numRow, numCol);
     }
@@ -173,7 +175,7 @@ public:
             delete lines[i];
     }
 
-    void tryPutChess(int x, int y)
+    GameStages tryPutChess(int x, int y)
     {
         Point* pos = getChessPos(x, y);
         std::cout << pos << std::endl;
@@ -185,10 +187,13 @@ public:
             if(IsThePlayerWin(pos->x, pos->y)) {
 
                 std::cout << ((turn == 2)? "white" : "black") << " wins!" << std::endl;
+                return (stage = GAME_OVER_PAGE);
             }
             flipTurn();
         }
         Fl::redraw();
+
+        return stage;
     }
 
 
@@ -196,7 +201,7 @@ void draw() {
         // draw lines
     for(int i = 0; i < lines.size(); i++)
         lines[i]->draw();
-
+        // draw chesses
     for(int i = 0; i < chesses.size(); i++)
         chesses[i]->draw();
 }
